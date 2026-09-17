@@ -1,6 +1,6 @@
 from google import genai
 
-client = genai.Client(api_key="AQ.Ab8RN6J7yRMSkaavy2F7KrIWLNTovjtW9kO1Q-BKzC738YkBvw")
+client = genai.Client(api_key="key")
 
 while True:
     question = input("You: ")
@@ -10,7 +10,8 @@ while True:
         break
 
     response = client.models.generate_content(
-        model="genai-3.5-turbo",
-        content=question
+        model="gemini-3.6-flash",
+        contents=question
     )
-    print("AI: " + response.content)
+
+    print("gemini:", response.text)
