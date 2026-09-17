@@ -1,0 +1,16 @@
+from google import genai
+
+client = genai.Client(api_key="AQ.Ab8RN6J7yRMSkaavy2F7KrIWLNTovjtW9kO1Q-BKzC738YkBvw")
+
+while True:
+    question = input("You: ")
+
+    if question.lower() == "exit":
+        print("Exiting the chat. Goodbye!")
+        break
+
+    response = client.models.generate_content(
+        model="genai-3.5-turbo",
+        content=question
+    )
+    print("AI: " + response.content)
