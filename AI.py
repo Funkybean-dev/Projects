@@ -1,0 +1,17 @@
+from google import genai
+
+client = genai.Client(api_key="key")
+
+while True:
+    question = input("You: ")
+
+    if question.lower() == "exit":
+        print("Exiting the chat. Goodbye!")
+        break
+
+    response = client.models.generate_content(
+        model="gemini-3.6-flash",
+        contents=question
+    )
+
+    print("gemini:", response.text)
